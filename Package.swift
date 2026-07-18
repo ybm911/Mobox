@@ -11,7 +11,7 @@ let package = Package(
         .executableTarget(
             name: "LingyiTranslate",
             path: ".",
-            exclude: ["README.md", "script", ".codex", ".gitignore", "dist", "outputs", "Bob_Translate_Golden_Gate-60a42f51be.icns"],
+            exclude: ["README.md", "LICENSE", "script", ".codex", ".gitignore", "dist", "outputs", "Bob_Translate_Golden_Gate-60a42f51be.icns"],
             resources: [.copy("Resources/AppIcon.icns")]
         )
     ]
