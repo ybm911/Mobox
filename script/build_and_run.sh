@@ -2,8 +2,8 @@
 set -euo pipefail
 
 MODE="${1:-run}"
-APP_NAME="LingyiTranslate"
-BUNDLE_ID="com.local.lingyi-translate"
+APP_NAME="Mobox"
+BUNDLE_ID="com.ybm911.mobox"
 MIN_SYSTEM_VERSION="14.0"
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DIST_DIR="$ROOT_DIR/dist"

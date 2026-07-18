@@ -5,7 +5,7 @@ let package = Package(
     name: "LingyiTranslate",
     platforms: [.macOS(.v14)],
     products: [
-        .executable(name: "LingyiTranslate", targets: ["LingyiTranslate"])
+        .executable(name: "Mobox", targets: ["LingyiTranslate"])
     ],
     targets: [
         .executableTarget(
