@@ -32,6 +32,8 @@ cat >"$INFO_PLIST" <<PLIST
 <key>CFBundleExecutable</key><string>$APP_NAME</string>
 <key>CFBundleIdentifier</key><string>$BUNDLE_ID</string>
 <key>CFBundleName</key><string>墨匣</string>
+<key>CFBundleShortVersionString</key><string>0.1.2</string>
+<key>CFBundleVersion</key><string>0.1.2</string>
 <key>CFBundleIconFile</key><string>AppIcon</string>
 <key>CFBundlePackageType</key><string>APPL</string>
 <key>LSMinimumSystemVersion</key><string>$MIN_SYSTEM_VERSION</string>

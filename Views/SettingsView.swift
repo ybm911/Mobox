@@ -6,6 +6,7 @@ struct SettingsView: View {
 
     var body: some View {
         @Bindable var model = model
+        @Bindable var updater = model.updater
         Form {
             Section("MLX 模型") {
                 HStack {
@@ -107,6 +108,27 @@ struct SettingsView: View {
                     Text(model.apiServer.statusMessage)
                         .font(.caption)
                         .foregroundStyle(model.apiServer.isRunning ? .green : .orange)
+                }
+            }
+
+            Section("软件更新") {
+                Toggle("启动时自动检查更新", isOn: $updater.automaticallyChecks)
+                HStack {
+                    Text(model.updater.statusMessage)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Button(model.updater.isChecking ? "检查中…" : "立即检查") {
+                        Task { await model.updater.checkForUpdates() }
+                    }
+                    .disabled(model.updater.isChecking || model.updater.isInstalling)
+                    if model.updater.updateAvailable {
+                        Button(model.updater.isInstalling ? "正在安装…" : "下载并安装") {
+                            Task { await model.updater.downloadAndInstall() }
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .disabled(model.updater.isInstalling)
+                    }
                 }
             }
         }

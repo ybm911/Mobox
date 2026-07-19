@@ -10,6 +10,7 @@
 - 选择 Hy-MT2 的全部 8 个 MLX 变体：1.8B / 7B 的默认 bf16、显式 bf16、8-bit 和 4-bit；联网时可刷新 Hugging Face 集合以获取新增项。
 - 菜单栏控制模型及接口范围：关闭、仅本机、局域网。
 - 退出应用时自动关闭 HTTP 端口、停止 MLX 子进程并取消模型下载。
+- 可选的启动时更新检查：从 GitHub Releases 检查新版，并可一键下载、安装到 `~/Applications/Mobox.app`。
 
 ## 首次使用
 

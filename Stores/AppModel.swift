@@ -23,6 +23,7 @@ final class AppModel {
     let modelDownloader = ModelDownloader()
     let modelCatalog = ModelCatalog()
     let apiServer = LocalTranslationServer()
+    let updater = UpdateManager()
 
     private let defaults = UserDefaults.standard
     private var terminationObserver: NSObjectProtocol?
@@ -144,6 +145,10 @@ final class AppModel {
     func restoreSavedService() {
         guard exposure != .disabled, !apiServer.isRunning else { return }
         applyExposure(exposure)
+    }
+
+    func checkForUpdatesAtLaunch() async {
+        await updater.checkAtLaunchIfNeeded()
     }
 
     func shutdown() {

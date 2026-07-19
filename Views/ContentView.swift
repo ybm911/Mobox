@@ -86,6 +86,22 @@ struct ContentView: View {
             }
         }
         .onAppear { model.restoreSavedService() }
+        .task { await model.checkForUpdatesAtLaunch() }
+        .alert(
+            "发现新版本 \(model.updater.latestRelease?.tagName ?? "")",
+            isPresented: Binding(
+                get: { model.updater.updateAvailable },
+                set: { if !$0 { model.updater.dismissUpdate() } }
+            )
+        ) {
+            Button(model.updater.isInstalling ? "正在安装…" : "下载并安装") {
+                Task { await model.updater.downloadAndInstall() }
+            }
+            .disabled(model.updater.isInstalling)
+            Button("稍后", role: .cancel) { model.updater.dismissUpdate() }
+        } message: {
+            Text("新版本会下载并安装到 ~/Applications/Mobox.app。")
+        }
     }
 
     private var serverStatus: some View {
