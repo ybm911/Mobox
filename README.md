@@ -84,7 +84,13 @@ API Key:  从墨匣设置复制“接口令牌”
 ./script/build_and_run.sh
 ```
 
-该命令会构建应用、生成 `dist/LingyiTranslate.app`，并启动它。应用图标资源为 `Resources/AppIcon.icns`。
+该命令会构建应用、生成 `dist/Mobox.app`，并启动它。应用图标资源为 `Resources/AppIcon.icns`。
+
+## 下载预构建版本
+
+每次推送 `v*` 标签时，GitHub Actions 会在 Apple Silicon macOS runner 上构建 `Mobox.app`，创建 GitHub Release，并上传 `Mobox-macOS-arm64.zip`。在仓库的 [Releases](https://github.com/ybm911/Mobox/releases) 页面下载即可。
+
+GitHub 构建产物尚未经过 Apple 公证。首次打开时如出现系统提示，请在访达中按住 Control 点击应用并选择“打开”。
 
 ## 开源说明
 
