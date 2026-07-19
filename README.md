@@ -90,7 +90,13 @@ API Key:  从墨匣设置复制“接口令牌”
 
 每次推送 `v*` 标签时，GitHub Actions 会在 Apple Silicon macOS runner 上构建 `Mobox.app`，创建 GitHub Release，并上传 `Mobox-macOS-arm64.zip`。在仓库的 [Releases](https://github.com/ybm911/Mobox/releases) 页面下载即可。
 
-GitHub 构建产物尚未经过 Apple 公证。首次打开时如出现系统提示，请在访达中按住 Control 点击应用并选择“打开”。
+GitHub 构建产物使用 ad-hoc 签名，但尚未经过 Apple Developer ID 公证。首次打开时如出现系统提示，请在访达中按住 Control 点击应用并选择“打开”。若你确认 ZIP 来自本仓库的 Release 但仍被隔离，请在终端执行：
+
+```bash
+xattr -dr com.apple.quarantine /Applications/Mobox.app
+```
+
+要完全消除 Gatekeeper 提示，需要后续配置 Apple Developer ID 证书与 Apple 公证。
 
 ## 开源说明
 

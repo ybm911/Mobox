@@ -39,5 +39,8 @@ cat >"$APP_CONTENTS/Info.plist" <<PLIST
 </dict></plist>
 PLIST
 
+codesign --force --deep --sign - --timestamp=none "$APP_BUNDLE"
+codesign --verify --deep --strict --verbose=2 "$APP_BUNDLE"
+
 ditto -c -k --sequesterRsrc --keepParent "$APP_BUNDLE" "$ZIP_PATH"
 echo "Created $ZIP_PATH"
