@@ -2,6 +2,8 @@
 
 “匣”代表本地容器：模型封存在本机，翻译内容无需发送到第三方云端。墨匣是一个运行在 Apple Silicon Mac 上的离线中英翻译器，使用 MLX 与 [Hy-MT2 MLX](https://huggingface.co/collections/mlx-community/hy-mt2) 系列模型，并可选地为本机或局域网设备提供兼容 OpenAI Chat Completions 的翻译接口。
 
+![墨匣主界面](Assets/mobox-overview.png)
+
 ## 功能
 
 - 中译英、英译中；点击中间的双箭头或按 **⌘⇧F** 切换方向。
